@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix Layout</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+     <style>
+  /* Apply consistent box-sizing for layout control */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Use flexbox for alignment */
+.container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Box styles */
+.box {
+    width: 100px;
+    height: 100px;
+    background: lightblue;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 100px;
+    font-weight: bold;
+}
+
+/* Position the paragraph nicely below boxes */
+.text {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+}
+@media (max-width: 500px) {
+    .box {
+        width: 80px;
+        height: 80px;
+        font-size: 0.9rem;
+    }
+}
+
+</style>
+</head>
+<body>
+    <h1>Debugging Task</h1>
+    <div class="container">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+    </div>
+    <p class="text">Fix my position!</p>
+</body>
+</html>
+<!-- 1.box elements have position: absolute — they overlap each other.
+
+2.margin: -10px causes unwanted overlap and layout breaking.
+
+3.container is display: block — default; no layout control.
+
+4.text is position: fixed — always stays at top, overlapping content.
+
+5.No box-sizing: border-box, causing sizing issues.
+
+6.Not responsive — fixed widths. -->
